@@ -2445,6 +2445,7 @@ class RunQueueExecute:
 
         if changed:
             self.holdoff_need_update = True
+            self.update_holdofftasks()
 
     def scenequeue_updatecounters(self, task, fail=False):
 
@@ -2472,6 +2473,7 @@ class RunQueueExecute:
             next = new
 
         self.holdoff_need_update = True
+        self.update_holdofftasks()
 
     def sq_task_completeoutright(self, task):
         """

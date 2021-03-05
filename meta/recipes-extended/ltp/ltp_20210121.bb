@@ -39,6 +39,7 @@ SRC_URI = "git://github.com/linux-test-project/ltp.git \
            file://0001-Add-more-musl-exclusions.patch \
            file://0001-Remove-OOM-tests-from-runtest-mm.patch \
            file://determinism.patch \
+           file://determinism2.patch \
            "
 
 S = "${WORKDIR}/git"

@@ -1,0 +1,57 @@
+sudo apt update ;  \
+sudo apt install   \
+   git-core        \
+   git             \
+   gawk            \
+   wget            \
+   gzip            \
+   diffstat        \
+   unzip           \
+   texinfo         \
+   chrpath         \
+   python2         \
+   python3         \
+   python3-pip     \
+   flex            \
+   bison           \
+   pv              \
+   tree            \
+   libgmp3-dev     \
+   libmpc-dev      \
+   build-essential \
+   g++-arm-linux-gnueabihf \
+   --fix-missing
+
+cd ~
+mkdir yocto
+cd yocto
+
+git clone -b ADT-altera https://github.com/ADT-Software/yocto.git altera
+git clone -b ADT-intel https://github.com/ADT-Software/yocto.git intel
+
+cd to either "altera" or "intel"
+
+--------------------------
+Edit build/conf/local.conf
+--------------------------
+
+Change (line 37-ish):
+
+MACHINE ??= "arria10"
+
+   to
+
+MACHINE ??= "arria10"
+   or
+MACHINE ??= "stratix0"
+   or
+MACHINE ??= "agilex"
+
+Uncomment the correct target SD card size at the end of the file.
+
+--------------------------
+ 
+build.sh
+
+... Wait a really long time ...
+

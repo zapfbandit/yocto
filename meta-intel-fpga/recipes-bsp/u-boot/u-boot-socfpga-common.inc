@@ -8,12 +8,9 @@ PE = "1"
 
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
-UBOOT_REPO ?= "git://github.com/altera-opensource/u-boot-socfpga.git"
-UBOOT_PROT ?= "https"
-
-UBOOT_VERSION_PREFIX ?= "socfpga_"
-UBOOT_VERSION ?= "v2020.04"
-UBOOT_BRANCH ?= "${UBOOT_VERSION_PREFIX}${UBOOT_VERSION}"
+UBOOT_REPO   = "git://github.com/zapfbandit/u-boot-socfpga.git"
+UBOOT_PROT   = "https"
+UBOOT_BRANCH = "ADT"
 
 SRCREV ?= "${AUTOREV}"
 PV_append = "+git${SRCPV}"

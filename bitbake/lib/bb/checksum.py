@@ -100,27 +100,28 @@ class FileChecksumCache(MultiProcessCache):
 
         checksums = []
         for pth in filelist.split():
-            exist = pth.split(":")[1]
-            if exist == "False":
-                continue
-            pth = pth.split(":")[0]
-            if '*' in pth:
-                # Handle globs
-                for f in glob.glob(pth):
-                    if os.path.isdir(f):
-                        if not os.path.islink(f):
-                            checksums.extend(checksum_dir(f))
-                    else:
-                        checksum = checksum_file(f)
-                        if checksum:
-                            checksums.append((f, checksum))
-            elif os.path.isdir(pth):
-                if not os.path.islink(pth):
-                    checksums.extend(checksum_dir(pth))
-            else:
-                checksum = checksum_file(pth)
-                if checksum:
-                    checksums.append((pth, checksum))
+            if len(pth.split(":")) > 1:
+                exist = pth.split(":")[1]
+                if exist == "False":
+                    continue
+                pth = pth.split(":")[0]
+                if '*' in pth:
+                    # Handle globs
+                    for f in glob.glob(pth):
+                        if os.path.isdir(f):
+                            if not os.path.islink(f):
+                                checksums.extend(checksum_dir(f))
+                        else:
+                            checksum = checksum_file(f)
+                            if checksum:
+                                checksums.append((f, checksum))
+                elif os.path.isdir(pth):
+                    if not os.path.islink(pth):
+                        checksums.extend(checksum_dir(pth))
+                else:
+                    checksum = checksum_file(pth)
+                    if checksum:
+                        checksums.append((pth, checksum))
 
         checksums.sort(key=operator.itemgetter(1))
         return checksums

@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 
 require recipes-kernel/linux/linux-yocto.inc
 
-KERNEL_REPO ?= "git://github.com/altera-opensource/linux-socfpga.git"
+KERNEL_REPO ?= "git://github.com/ADT-Software/linux-socfpga.git"
 KERNEL_PROT ?= "https"
 
 # Kernel CONFIG_LOCALVERSION
@@ -19,7 +19,7 @@ SRCREV_machine ?= "${AUTOREV}"
 PV = "${LINUX_VERSION}${LINUX_VERSION_SUFFIX}"
 PV_append = "+git${SRCPV}"
 
-KBRANCH ?= "${LINUX_VERSION_PREFIX}${LINUX_VERSION}${LINUX_VERSION_SUFFIX}"
+KBRANCH = "${LINUX_VERSION_PREFIX}${LINUX_VERSION}${LINUX_VERSION_SUFFIX}"
 
 SRC_URI = "${KERNEL_REPO};protocol=${KERNEL_PROT};branch=${KBRANCH}"
 

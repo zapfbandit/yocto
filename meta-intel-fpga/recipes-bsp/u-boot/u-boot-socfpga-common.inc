@@ -10,7 +10,10 @@ require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
 UBOOT_REPO   = "git://github.com/zapfbandit/u-boot-socfpga.git"
 UBOOT_PROT   = "https"
-UBOOT_BRANCH = "ADT"
+
+UBOOT_VERSION_PREFIX ?= "socfpga_"
+UBOOT_VERSION ?= "v2020.07"
+UBOOT_BRANCH ?= "ADT_${UBOOT_VERSION_PREFIX}${UBOOT_VERSION}"
 
 SRCREV ?= "${AUTOREV}"
 PV_append = "+git${SRCPV}"

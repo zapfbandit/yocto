@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 
 require recipes-kernel/linux/linux-yocto.inc
 
-KERNEL_REPO ?= "git://github.com/ADT-Software/linux-socfpga.git"
+KERNEL_REPO ?= "git://github.com/zapfbandit/linux-socfpga.git"
 KERNEL_PROT ?= "https"
 
 # Kernel CONFIG_LOCALVERSION

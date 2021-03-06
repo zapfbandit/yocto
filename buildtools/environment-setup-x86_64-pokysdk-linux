@@ -1,0 +1,5 @@
+export PATH=/home/adt/remix/yocto/buildtools/sysroots/x86_64-pokysdk-linux/usr/bin:$PATH
+#OECORE_NATIVE_SYSROOT="/home/adt/remix/yocto/buildtools/sysroots/x86_64-pokysdk-linux"
+export GIT_SSL_CAINFO="/home/adt/remix/yocto/buildtools/sysroots/x86_64-pokysdk-linux/etc/ssl/certs/ca-certificates.crt"
+export SSL_CERT_FILE="/home/adt/remix/yocto/buildtools/sysroots/x86_64-pokysdk-linux/etc/ssl/certs/ca-certificates.crt"
+export OPENSSL_CONF="/home/adt/remix/yocto/buildtools/sysroots/x86_64-pokysdk-linux/etc/ssl/openssl.cnf"

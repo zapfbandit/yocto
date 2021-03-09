@@ -14,6 +14,7 @@ echo "Yocto build started at" |& tee $log
 date |& tee -a $log
 echo -e "*****************************\n" |& tee -a $log
 
+bitbake -c clean u-boot-socfpga |& tee -a $log
 bitbake core-image-minimal |& tee -a $log
 
 rm -f ~/yocto_intel_wic.gz

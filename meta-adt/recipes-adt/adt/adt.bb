@@ -5,10 +5,10 @@ DESCRIPTION = "Add the files required for the board image to have all the requir
 LICENSE = "CLOSED"
 
 SRC_URI += " \
-    file://files/etc/resolv.conf \
-    file://files/etc/network/interfaces \
-    file://files/home/root/.ssh/devkey \
-    file://files/home/root/.ssh/devkey.pub \
+    file://${THISDIR}/files/etc/resolv.conf \
+    file://${THISDIR}/ffiles/etc/network/interfaces \
+    file://${THISDIR}/ffiles/home/root/.ssh/devkey \
+    file://${THISDIR}/ffiles/home/root/.ssh/devkey.pub \
 "
 
 do_install() {

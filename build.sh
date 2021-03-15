@@ -14,7 +14,7 @@ date |& tee -a $log
 echo -e "*****************************" |& tee -a $log
 
 echo -e "\n--------\nCleaning\n--------\n"
-bitbake core-image-minimal u-boot-socfpga -c cleanall -f |& tee -a $log
+bitbake core-image-minimal u-boot-socfpga adt -c cleanall -f |& tee -a $log
 
 echo -e "\n--------\nBuilding\n--------\n"
 bitbake core-image-minimal |& tee -a $log

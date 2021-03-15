@@ -4,29 +4,33 @@ DESCRIPTION = "Add the files required for the board image to have all the requir
 
 LICENSE = "CLOSED"
 
+inherit allarch
+
+FILESEXTRAPATHS_prepend := "${THISDIR}:"
+
 SRC_URI += " \
-    file://${THISDIR}/files/etc/resolv.conf \
-    file://${THISDIR}/ffiles/etc/network/interfaces \
-    file://${THISDIR}/ffiles/home/root/.ssh/devkey \
-    file://${THISDIR}/ffiles/home/root/.ssh/devkey.pub \
+    file://files/etc/resolv.conf \
+    file://files/etc/network/interfaces \
+    file://files/home/root/.ssh/devkey \
+    file://files/home/root/.ssh/devkey.pub \
 "
 
 do_install() {
 
-   install -d ${D}${base_prefix}/etc/
-   install -m 666 ${WORKDIR}/files/etc/resolv.conf           ${D}${base_prefix}/etc/
+   install -d ${D}/etc
+   install -m 666 ${WORKDIR}/files/etc/resolv.conf           ${D}/etc/
    
-   install -d ${D}${base_prefix}/etc/network/
-   install -m 666 ${WORKDIR}/files/etc/network/interfaces    ${D}${base_prefix}/etc/network/
+   install -d ${D}/etc/network/
+   install -m 666 ${WORKDIR}/files/etc/network/interfaces    ${D}/etc/network/
    
-   install -d ${D}${base_prefix}/home/root/.ssh/
-   install -m 666 ${WORKDIR}/files/home/root/.ssh/devkey     ${D}${base_prefix}/home/root/.ssh/
-   install -m 666 ${WORKDIR}/files/home/root/.ssh/devkey.pub ${D}${base_prefix}/home/root/.ssh/   
+   install -d ${D}/home/root/.ssh/
+   install -m 666 ${WORKDIR}/files/home/root/.ssh/devkey     ${D}/home/root/.ssh/
+   install -m 666 ${WORKDIR}/files/home/root/.ssh/devkey.pub ${D}/home/root/.ssh/   
 }
 
 FILES_${PN} += " \
-   ${base_prefix}/etc/resolv.conf \
-   ${base_prefix}/etc/network/interfaces \
-   ${base_prefix}/files/home/root/.ssh/devkey \
-   ${base_prefix}//files/home/root/.ssh/devkey.pub \
+   /etc/resolv.conf \
+   /etc/network/interfaces \
+   /home/root/.ssh/devkey \
+   /home/root/.ssh/devkey.pub \
 "

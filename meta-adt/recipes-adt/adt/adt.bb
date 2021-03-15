@@ -20,8 +20,8 @@ do_install() {
    install -d ${D}/etc
    install -m 666 ${WORKDIR}/files/etc/resolv.conf           ${D}/etc/
    
-   install -d ${D}/etc/network/
-   install -m 666 ${WORKDIR}/files/etc/network/interfaces    ${D}/etc/network/
+   #install -d ${D}/etc/network/
+   #install -m 666 ${WORKDIR}/files/etc/network/interfaces    ${D}/etc/network/
    
    install -d ${D}/home/root/.ssh/
    install -m 666 ${WORKDIR}/files/home/root/.ssh/devkey     ${D}/home/root/.ssh/

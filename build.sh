@@ -13,6 +13,10 @@ echo "Yocto build started at" |& tee $log
 date |& tee -a $log
 echo -e "*****************************" |& tee -a $log
 
+#bitbake-layers show-layers
+#bitbake-layers show-recipes
+#bitbake-layers show-appends
+
 echo -e "\n--------\nCleaning\n--------\n"
 bitbake core-image-minimal u-boot-socfpga adt -c cleanall -f |& tee -a $log
 
